@@ -130,3 +130,4 @@ ios/Pods
 ios/build
 android/app/build
 vendor
+android/.gradle
