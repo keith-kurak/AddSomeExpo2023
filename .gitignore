@@ -131,3 +131,6 @@ ios/build
 android/app/build
 vendor
 android/.gradle
+.expo/
+ios/UsingExpoDemo2023.xcworkspace/xcuserdata/keith.xcuserdatad/UserInterfaceState.xcuserstate
+ios/UsingExpoDemo2023.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
