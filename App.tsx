@@ -16,6 +16,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import * as Updates from 'expo-updates';
 
 import {
   Colors,
@@ -30,6 +31,10 @@ type SectionProps = PropsWithChildren<{
 }>;
 
 function Section({children, title}: SectionProps): JSX.Element {
+  const runTypeMessage = Updates.isEmbeddedLaunch
+    ? 'This app is running from built-in code'
+    : 'This app is running an update';
+
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -51,6 +56,7 @@ function Section({children, title}: SectionProps): JSX.Element {
         ]}>
         {children}
       </Text>
+      <Text>{runTypeMessage}</Text>
     </View>
   );
 }
