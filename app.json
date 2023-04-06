@@ -1,4 +1,19 @@
 {
   "name": "UsingExpoDemo2023",
-  "displayName": "UsingExpoDemo2023"
+  "displayName": "UsingExpoDemo2023",
+  "extra": {
+    "eas": {
+      "projectId": "fd6f91fb-6a39-44c1-b3ea-ce52135ad12d"
+    }
+  },
+  "owner": "keith-kurak",
+  "runtimeVersion": "1.0.0",
+  "updates": {
+    "url": "https://u.expo.dev/fd6f91fb-6a39-44c1-b3ea-ce52135ad12d",
+    "requestHeaders": {
+      "expo-channel-name": "main"
+    }
+  },
+  "android": {},
+  "ios": {}
 }
