@@ -17,6 +17,19 @@
     },
     "ios": {
       "bundleIdentifier": "com.keithkurak.usingexpodemo2023"
-    }
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 29
+          },
+          "ios": {
+            "deploymentTarget": "14.0"
+          }
+        }
+      ]
+    ]
   }
 }
