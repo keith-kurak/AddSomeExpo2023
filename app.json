@@ -1,4 +1,35 @@
 {
-  "name": "UsingExpoDemo2023",
-  "displayName": "UsingExpoDemo2023"
+  "expo": {
+    "slug": "usingexpodemo2023",
+    "name": "UsingExpoDemo2023",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "android": {
+      "package": "com.keithkurak.usingexpodemo2023",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.keithkurak.usingexpodemo2023"
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 29
+          },
+          "ios": {
+            "deploymentTarget": "14.0"
+          }
+        }
+      ]
+    ]
+  }
 }
