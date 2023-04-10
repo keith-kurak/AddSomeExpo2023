@@ -3,6 +3,7 @@
     "slug": "usingexpodemo2023",
     "name": "UsingExpoDemo2023",
     "icon": "./assets/icon.png",
+    "version": "1.0.0",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -41,6 +42,7 @@
     },
     "updates": {
       "url": "https://u.expo.dev/fd6f91fb-6a39-44c1-b3ea-ce52135ad12d"
-    }
+    },
+    "owner": "keith-kurak"
   }
 }
