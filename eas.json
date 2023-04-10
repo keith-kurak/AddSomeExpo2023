@@ -24,12 +24,14 @@
       }
     },
     "production": {
+      "channel": "production",
       "autoIncrement": true,
       "ios": {
         "resourceClass": "m-medium"
       }
     },
     "production-apk": {
+      "channel": "production",
       "android": {
         "buildType": "apk"
       }
