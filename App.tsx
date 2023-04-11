@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -15,6 +15,8 @@ import {
   Text,
   useColorScheme,
   View,
+  Alert,
+  Button,
 } from 'react-native';
 
 import {
@@ -24,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import * as Updates from 'expo-updates';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -56,11 +59,31 @@ function Section({children, title}: SectionProps): JSX.Element {
 }
 
 function App(): JSX.Element {
+  const [isUpdateAvailable, setIsUpdateAvailable] = useState(false);
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
+
+  async function onCheckIfUpdateAvailableAsync() {
+    const update = await Updates.checkForUpdateAsync();
+    setIsUpdateAvailable(update.isAvailable);
+  }
+
+  async function onFetchUpdateAsync() {
+    try {
+      const update = await Updates.checkForUpdateAsync();
+
+      if (update.isAvailable) {
+        await Updates.fetchUpdateAsync();
+        await Updates.reloadAsync();
+      }
+    } catch (error) {
+      Alert.alert(`Error fetching latest Expo update: ${error}`);
+    }
+  }
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -76,10 +99,42 @@ function App(): JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
+          <View style={styles.sectionContainer}>
+            <Text
+              style={[
+                styles.sectionTitle,
+                {
+                  color: isDarkMode ? Colors.white : Colors.black,
+                },
+              ]}>
+              Updates
+            </Text>
+            <Text
+              style={[
+                styles.sectionDescription,
+                {
+                  color: isDarkMode ? Colors.light : Colors.dark,
+                },
+              ]}>
+              Current update ID: {Updates.updateId}
+            </Text>
+            {isUpdateAvailable && (
+              <Text
+                style={[
+                  styles.sectionDescription,
+                  {
+                    color: 'green',
+                  },
+                ]}>
+                Update available!
+              </Text>
+            )}
+            <Button
+              title="Check if update available"
+              onPress={onCheckIfUpdateAvailableAsync}
+            />
+            <Button title="Fetch update" onPress={onFetchUpdateAsync} />
+          </View>
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
