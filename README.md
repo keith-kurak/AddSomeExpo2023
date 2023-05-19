@@ -16,4 +16,5 @@
  2. Run `yarn start` to start the Expo CLI and run on a simulator or device.
 
 # More fun stuff
-Check out a simple [Expo Router demo](https://github.com/keith-kurak/simple-expo-router-demo)
+- Check out a simple [Expo Router demo](https://github.com/keith-kurak/simple-expo-router-demo)
+- [Chain React 2023 "Not Your Grandpa's Expo" slides](https://docs.google.com/presentation/d/1IlbfqnW3t8lfNY5JKfd_2t6Ui-OFYUIvoMRbol62KJs/edit?usp=sharing)
